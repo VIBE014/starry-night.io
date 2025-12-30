@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    z-index: 10;
+    position: relative;
+}
+
+.letter-container {
+    background-color: rgba(10, 0, 0, 0.85);
+    border: 1px solid #990000;
+    border-radius: 5px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
+}
+
+.letter-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
+}
+
+.letter-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #330000;
+}
+
+h1 {
+    color: #ff0000;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    letter-spacing: 2px;
+    font-family: 'Times New Roman', serif;
+}
+
+.subtitle {
+    color: #cc0000;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.letter-body {
+    line-height: 1.8;
+    font-size: 1.15rem;
+    color: #ffe6e6;
+}
+
+.letter-body p {
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.letter-body p:nth-child(1) { animation-delay: 0.3s; }
+.letter-body p:nth-child(2) { animation-delay: 0.8s; }
+.letter-body p:nth-child(3) { animation-delay: 1.3s; }
+.letter-body p:nth-child(4) { animation-delay: 1.8s; }
+.letter-body p:nth-child(5) { animation-delay: 2.3s; }
+.letter-body p:nth-child(6) { animation-delay: 2.8s; }
+.letter-body p:nth-child(7) { animation-delay: 3.3s; }
+.letter-body p:nth-child(8) { animation-delay: 3.8s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signature {
+    text-align: right;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #330000;
+    opacity: 0;
+    animation: fadeIn 2s forwards 4.5s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.signature h3 {
+    color: #ff3333;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.signature p {
+    color: #cc6666;
+    font-style: italic;
+}
+
+.heart {
+    color: #ff0000;
+    font-size: 1.5rem;
+    margin: 0 5px;
+}
+
+.controls {
+    background-color: rgba(20, 0, 0, 0.8);
+    border: 1px solid #990000;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.button {
+    background-color: #330000;
+    color: #ff6666;
+    border: 1px solid #990000;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+}
+
+.button:hover {
+    background-color: #990000;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.footer {
+    margin-top: 30px;
+    color: #660000;
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 10;
+    padding: 10px;
+}
+
+#starCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.new-year {
+    color: #ff3333;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+.highlight {
+    color: #ff6666;
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .letter-container {
+        padding: 25px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .letter-body {
+        font-size: 1rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .letter-container {
+        padding: 20px;
+    }
+    
+    .letter-body {
+        font-size: 0.95rem;
+    }
+}
